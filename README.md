@@ -37,7 +37,7 @@ python3 Enhancement/test_from_dataset.py --opt Options/test_LL_Refiner_UHD-LOL-4
 ```
 
 ## 🚀 5. Training
-Coming soon.
+Coming soon. It will be available in the near future. If you require the training code urgently, please contact us and specify your intended use.
 
 ## Citation
 If you find our work or dataset useful for your research, please cite our paper.
