@@ -1,5 +1,5 @@
 # [IEEE/CAA JAS 2026] LL-Refiner: Learning Adaptive Refinement for Ultra-High-Definition Low-Light Image Enhancement
-### [Paper]() | [Code](https://github.com/XunpengYi/LL-Refiner) 
+### [Paper](https://www.ieee-jas.com/en/article/doi/10.1109/JAS.2026.125939) | [Code](https://github.com/XunpengYi/LL-Refiner) 
 
 ![Framework](asserts/framework.png)
 
@@ -37,7 +37,17 @@ python3 Enhancement/test_from_dataset.py --opt Options/test_LL_Refiner_UHD-LOL-4
 ```
 
 ## 🚀 5. Training
-Coming soon. It will be available in the near future. If you require the training code urgently, please contact us and specify your intended use.
+We recommend using at least four GPUs with 24 GB or more of VRAM, such as NVIDIA GeForce RTX 4090, for training to achieve optimal performance.
+
+```
+# UHD-LL dataset
+CUDA_VISIBLE_DEVICES=0,1,2,3 python3 -m torch.distributed.launch --nproc_per_node=4 --use_env --master_port=2388 basicsr/train.py --opt Options/train_LL_Refiner_UHD-LL.yml --launcher pytorch
+
+# UHD-LOL-4K dataset
+CUDA_VISIBLE_DEVICES=0,1,2,3 python3 -m torch.distributed.launch --nproc_per_node=4 --use_env --master_port=2388 basicsr/train.py --opt Options/train_LL_Refiner_UHD-LOL-4K.yml --launcher pytorch
+```
+
+For training with a custom dataset, simply update the corresponding dataset paths in the configuration file of `Options/`.
 
 ## Citation
 If you find our work or dataset useful for your research, please cite our paper.
